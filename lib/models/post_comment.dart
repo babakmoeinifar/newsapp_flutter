@@ -4,7 +4,7 @@ class PostComment {
   String comment_id, comment;
   Author author;
 
-  PostComment(this.comment_id, comment) 
+  PostComment(this.comment_id, comment);
 
   PostComment.fromJson(Map<String, dynamic> jsonObject) {
     this.comment_id = jsonObject['comment_id'].toString();

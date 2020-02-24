@@ -5,8 +5,7 @@ import 'package:flutter_app/models/post_image.dart';
 import 'package:flutter_app/models/post_tag.dart';
 
 class Post {
-  String post_id, post_title, post_content, post_type;
-  DateTime updated_at;
+  String post_id, post_title, post_content, post_type, updated_at;
 
   List<PostImage> images;
   List<PostTag> tags;
@@ -31,22 +30,23 @@ class Post {
     this.post_title = jsonObject['post_title'].toString();
     this.post_content = jsonObject['post_content'].toString();
     this.post_type = jsonObject['post_type'].toString();
-    this.updated_at = DateTime.parse(jsonObject['updated_at']);
-
-    this.images = jsonObject['images'].map((Map<String, dynamic> jsonImage) {
-      return PostImage.fromJson(jsonImage);
-    }).toList();
-
-    this.tags = jsonObject['tags'].map((Map<String, dynamic> jsonTag) {
-      return PostTag.fromJson(jsonTag);
-    }).toList();
-
-    this.comments =
-        jsonObject['comments'].map((Map<String, dynamic> jsonComment) {
-      return PostComment.fromJson(jsonComment);
-    }).toList();
-
+    this.updated_at = jsonObject['updated_at'];
     this.category = Category.fromJson(jsonObject['category']);
     this.author = Author.fromJson(jsonObject['author']);
+
+    this.images = [];
+    for(var item in jsonObject['images']) {
+      images.add(PostImage.fromJson(item));
+    }
+
+    this.tags = [];
+    for(var item in jsonObject['tags']) {
+      tags.add(PostTag.fromJson(item));
+    }
+
+    this.comments = [];
+    for(var item in jsonObject['comments']) {
+      comments.add(PostComment.fromJson(item));
+    }
   }
 }

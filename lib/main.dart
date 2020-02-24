@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/screens/category_posts.dart';
 import 'api/categories_api.dart';
 import 'models/category.dart';
 
@@ -48,11 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
           builder:
               (BuildContext context, AsyncSnapshot<List<Category>> snapshot) {
             switch (snapshot.connectionState) {
-              case ConnectionState.active:
-                return _loading();
-                break;
-
               case ConnectionState.waiting:
+              case ConnectionState.active:
                 return _loading();
                 break;
 
@@ -65,7 +63,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   return _error(snapshot.error.toString());
                 }
                 if (snapshot.hasData) {
-                  return _drawCategoriesList(snapshot.data);
+                  return _drawCategoriesList(snapshot.data, context);
                 }
                 break;
             }
@@ -76,15 +74,23 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _drawCategoriesList(List<Category> categories) {
+  Widget _drawCategoriesList(List<Category> data, BuildContext context) {
     return ListView.builder(
-      itemCount: categories.length,
+      itemCount: data.length,
       itemBuilder: (BuildContext context, int position) {
-          return Card(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Text(categories[position].title),
+          return InkWell(
+            child: Card(
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Text(data[position].title),
+              ),
             ),
+            onTap: () {
+              Navigator.push(context,
+                  MaterialPageRoute(
+                      builder: (context) => CategoryPosts(data[position].id)
+              ));
+            },
           );
       },
     );
@@ -97,12 +103,12 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _error(String error) {
-    return Container(
-      child: Center(
-          child: Text(
-        error,
-        style: TextStyle(color: Colors.red),
-      )),
-    );
+      return Container(
+        child: Center(
+            child: Text(
+          error,
+          style: TextStyle(color: Colors.red),
+        )),
+      );
   }
 }
