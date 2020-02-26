@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/category_posts.dart';
 import 'api/categories_api.dart';
 import 'models/category.dart';
+import 'screens/categories_list.dart';
+import 'screens/home_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,16 +11,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'NewsApp',
       theme: ThemeData(
         primarySwatch: Colors.teal,
       ),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(title: 'NewsApp'),
+     home: HomeScreen(),
+      routes: {
+        // '/' => HomeScreen(),
+        '/categories' : (BuildContext context) => CategoriesList(),
+      },
     );
   }
 }
 
+/*
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
 
@@ -112,3 +119,4 @@ class _HomeScreenState extends State<HomeScreen> {
       );
   }
 }
+*/
