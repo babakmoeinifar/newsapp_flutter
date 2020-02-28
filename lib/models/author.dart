@@ -1,12 +1,12 @@
 class Author {
-  String author_id, name, author_email, avatar;
+  String authorId, name, authorEmail, avatar;
 
-  Author(this.author_id, this.name, this.author_email, this.avatar);
+  Author(this.authorId, this.name, this.authorEmail, this.avatar);
 
   Author.fromJson(Map<String, dynamic> jsonObject){
-    this.author_id = jsonObject['author_id'].toString();
+    this.authorId = jsonObject['author_id'].toString();
     this.name = jsonObject['name'].toString();
-    this.author_email = jsonObject['author_email'].toString();
+    this.authorEmail = jsonObject['author_email'].toString();
     this.avatar = jsonObject['avatar'].toString();
   }
 }

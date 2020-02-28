@@ -6,7 +6,7 @@ import 'package:flutter_app/models/post_image.dart';
 import 'package:flutter_app/models/post_tag.dart';
 
 class Post {
-  String post_id, post_title, post_content, post_type, updated_at;
+  String postId, postTitle, postContent, postType, updatedAt;
 
   List<PostImage> images;
   List<PostTag> tags;
@@ -15,23 +15,23 @@ class Post {
   Author author;
 
   Post(
-      this.post_id,
-      this.post_title,
-      this.post_content,
-      this.post_type,
+      this.postId,
+      this.postTitle,
+      this.postContent,
+      this.postType,
       this.images,
       this.tags,
       this.comments,
-      this.updated_at,
+      this.updatedAt,
       this.category,
       this.author);
 
   Post.fromJson(Map<String, dynamic> jsonObject) {
-    this.post_id = jsonObject['post_id'].toString();
-    this.post_title = jsonObject['post_title'].toString();
-    this.post_content = jsonObject['post_content'].toString();
-    this.post_type = jsonObject['post_type'].toString();
-    this.updated_at = jsonObject['updated_at'];
+    this.postId = jsonObject['post_id'].toString();
+    this.postTitle = jsonObject['post_title'].toString();
+    this.postContent = jsonObject['post_content'].toString();
+    this.postType = jsonObject['post_type'].toString();
+    this.updatedAt = jsonObject['updated_at'];
     this.category = Category.fromJson(jsonObject['category']);
     this.author = Author.fromJson(jsonObject['author']);
 
@@ -53,7 +53,7 @@ class Post {
 
   String getFeaturedImage() {
     if(this.images.length > 0) {
-      return this.images[0].image_url;
+      return this.images[0].imageUrl;
     }
     return null;
   }

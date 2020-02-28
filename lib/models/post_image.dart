@@ -1,13 +1,13 @@
 class PostImage {
-  String image_id, image_description, image_url, post_id, is_featured;
+  String imageId, imageDescription, imageUrl, postId, isFeatured;
 
-  PostImage(this.image_id, this.image_description, this.image_url, this.post_id, this.is_featured);
+  PostImage(this.imageId, this.imageDescription, this.imageUrl, this.postId, this.isFeatured);
 
   PostImage.fromJson(Map<String, dynamic> jsonObject) {
-    this.image_id = jsonObject['image_id'].toString();
-    this.image_description = jsonObject['image_description'].toString();
-    this.image_url = jsonObject['image_url'].toString();
-    this.post_id = jsonObject['post_id'].toString();
-    this.is_featured = jsonObject['is_featured'];
+    this.imageId = jsonObject['image_id'].toString();
+    this.imageDescription = jsonObject['image_description'].toString();
+    this.imageUrl = jsonObject['image_url'].toString();
+    this.postId = jsonObject['post_id'].toString();
+    this.isFeatured = jsonObject['is_featured'];
   }
 }

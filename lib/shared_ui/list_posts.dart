@@ -34,7 +34,7 @@ class PostCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      post.post_title,
+                      post.postTitle,
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                     ),
@@ -46,7 +46,7 @@ class PostCard extends StatelessWidget {
                           style: TextStyle(fontWeight: FontWeight.w500),
                         ),
                         Text(
-                          post.updated_at,
+                          post.updatedAt,
                           style: TextStyle(color: Colors.grey),
                         ),
                       ],

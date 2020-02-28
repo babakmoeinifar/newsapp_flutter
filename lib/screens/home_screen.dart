@@ -107,14 +107,14 @@ Widget _slider(List<Post> data, context) {
       itemBuilder: (BuildContext context, int position){
         return InkWell(
           onTap: () {
-            //TODO
+            // TODO
             },
             child: Stack(
               children: <Widget>[
               Image(
                 fit: BoxFit.cover,
                 image: NetworkImage(
-                  data[position].images[0].image_url
+                  data[position].images[0].imageUrl
                   ),
                 ),
                 Align(
@@ -123,7 +123,7 @@ Widget _slider(List<Post> data, context) {
                     padding: EdgeInsets.all(8),
                     margin: EdgeInsets.only(bottom:8),
                     color: Colors.grey.withAlpha(80),
-                    child: Text(data[position].post_title, style: TextStyle(fontSize:18),),
+                    child: Text(data[position].postTitle, style: TextStyle(fontSize:18),),
                     ),
                   ),
               ],

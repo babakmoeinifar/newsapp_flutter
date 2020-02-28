@@ -35,7 +35,7 @@ class _SinglePostScreenState extends State<SinglePostScreen> {
               if (position == 0) {
                 return Container(
                   padding: EdgeInsets.all(16),
-                  child: Text(widget.post.post_content,
+                  child: Text(widget.post.postContent,
                       style:
                           TextStyle(fontSize: 24, fontWeight: FontWeight.w500)),
                 );

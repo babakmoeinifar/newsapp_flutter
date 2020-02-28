@@ -1,10 +1,10 @@
 class PostTag {
-  String tag_id, tag;
+  String tagId, tag;
 
-  PostTag(this.tag_id, tag);
+  PostTag(this.tagId, tag);
 
   PostTag.fromJson(Map<String, dynamic> jsonObject) {
-    this.tag_id = jsonObject['tag_id'].toString();
+    this.tagId = jsonObject['tag_id'].toString();
     this.tag = jsonObject['tag'].toString();
   }
 }
