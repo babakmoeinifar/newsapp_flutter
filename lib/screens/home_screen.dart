@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/shared_ui/list_posts.dart';
 import '../api/posts_api.dart';
 import '../models/post.dart';
 
@@ -140,30 +141,7 @@ Widget _postsList(List<Post> data){
       child: ListView.builder(
         itemCount: data.length,
         itemBuilder: (BuildContext context, int position) {
-          return InkWell(
-            child: Container(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    data[position].post_title,
-                    style: TextStyle(
-                        color: Colors.teal, fontSize: 22
-                    ),
-                  ),
-                  SizedBox(height: 18,),
-                  Text(
-                    data[position].author.name,
-                    style: TextStyle(
-                        color: Colors.blueGrey, fontSize: 18
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          );
+          return PostCard(data[position]);
           onTap:
               () {
             //TODO

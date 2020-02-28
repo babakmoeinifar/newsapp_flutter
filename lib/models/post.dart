@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_app/models/author.dart';
 import 'package:flutter_app/models/category.dart';
 import 'package:flutter_app/models/post_comment.dart';
@@ -48,5 +49,19 @@ class Post {
     for(var item in jsonObject['comments']) {
       comments.add(PostComment.fromJson(item));
     }
+  }
+
+  String getFeaturedImage() {
+    if(this.images.length > 0) {
+      return this.images[0].image_url;
+    }
+    return null;
+  }
+
+    ImageProvider getPostImage() {
+    if(this.getFeaturedImage() == null) {
+      return ExactAssetImage('assets/images/placehoder.webp');
+    }
+    return NetworkImage(this.getFeaturedImage());
   }
 }

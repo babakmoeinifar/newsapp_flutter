@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/screens/category_posts.dart';
-import 'api/categories_api.dart';
-import 'models/category.dart';
+import 'package:flutter_app/api/categories_api.dart';
+import 'package:flutter_app/models/category.dart';
 import 'screens/categories_list.dart';
 import 'screens/home_screen.dart';
 
