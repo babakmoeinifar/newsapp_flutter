@@ -56,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return _error('No data Fetched yet!');
             }
             if(snapshot.hasData){
-              return _drawPostsList(snapshot.data);
+              return _drawPostsList(snapshot.data, context);
             }
             break;
           }
@@ -67,7 +67,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget _drawPostsList(List<Post> data) {
+Widget _drawPostsList(List<Post> data, context) {
   List<Post> postsWithImages = [];
   for(Post post in data){
     if(post.images.length > 0) {
@@ -77,7 +77,7 @@ Widget _drawPostsList(List<Post> data) {
 
   return Column(
     children: <Widget>[
-    _slider(postsWithImages),
+    _slider(postsWithImages, context),
     _postsList(data),
     ],
     );
@@ -99,7 +99,7 @@ Widget _error(String error) {
     );
 }
 
-Widget _slider(List<Post> data) {
+Widget _slider(List<Post> data, context) {
   return Container(
     height: MediaQuery.of(context).size.height * 0.25,
     child:PageView.builder(
